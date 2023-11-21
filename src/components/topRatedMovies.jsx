@@ -1,5 +1,8 @@
 import React from "react";
 import MovieCard from "./movieCard";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const movies = [
     {
@@ -55,12 +58,20 @@ const movies = [
 ]
 const TopRatedMovies = () => {
 
+    const settings = {
+        dots: false,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 7,
+        slidesToScroll: 4,
+    };
+
     return (
         <div style={{padding: "1rem"}}>
             <h1 style={{color: "#e0e1dd"}}>Top rated</h1>
-            <div className="d-flex flex-row flex-wrap justify-content-center">
+            <Slider {...settings}>
                 {movies.map((movie)=><MovieCard title = {movie.title} image = {movie.image} description = {movie.desc} />)}
-            </div>
+            </Slider>
         </div>
     )
 

@@ -1,5 +1,8 @@
 import React, {useState} from "react";
 import MovieCard from "./movieCard";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const moviesFromWatchlist = [
     {
@@ -58,13 +61,22 @@ const FromWatchlist = () => {
     //const { isLoggedIn, login } = useAuth();
     const { isLoggedIn, login } = useState(false); //temporary solution
 
+    const settings = {
+        dots: false,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 7,
+        slidesToScroll: 4,
+    };
+
+
     return (
         <div style={{padding: "1rem"}}>
             <h1 style={{color: "#e0e1dd"}}>From your watchlist</h1>
             {isLoggedIn ? (
-                <div className="d-flex flex-row flex-wrap justify-content-center">
+                <Slider {...settings}>
                     {moviesFromWatchlist.map((movie)=><MovieCard title = {movie.title} image = {movie.image} description = {movie.desc} />)}
-                </div>
+                </Slider>
             ): (
                 <div className="d-flex flex-column align-items-center">
                     <p style = {{fontSize: "1.5rem", color:"#778da9"}}>You need to log in to see your watchlist.</p>

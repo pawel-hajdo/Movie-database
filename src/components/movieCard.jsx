@@ -23,19 +23,21 @@ const MovieCard = (params) => {
     };
 
     const cardStyle = {
-        width: isHovered ? "20rem" : "10rem",
-        height: "15rem",
-        transition: "width 0.25s",
+        height: isHovered ? "30rem" : "15rem",
+        transition: "height 0.25s",
         display: "flex",
-        flexDirection: "row", // Ustawienie układu w poziomie
+        flexDirection: "column",
         overflow: "hidden",
     };
 
+    const imageStyle = {
+        flex: "1",
+        objectFit: "cover",
+        maxHeight: "15rem",
+        width: "100%"
+    };
+
     const textContainerStyle = {
-        flex: "1", // Elastyczność dla kontenera tekstu
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
         padding: "0.5rem",
     };
 
@@ -50,7 +52,7 @@ const MovieCard = (params) => {
                 src={getImage()}
                 className="img-fluid rounded-start"
                 alt="movie cover"
-                style={{flex: "1"}}
+                style={imageStyle}
             />
             {isHovered && (
                 <div style={textContainerStyle}>
