@@ -69,9 +69,16 @@ const FromWatchlist = () => {
         slidesToScroll: 4,
     };
 
+    const styles={
+        marginTop: "1rem",
+        padding: "2rem",
+        backgroundColor: "#0d1b2a",
+        borderRadius: "25px",
+        overflow: "hidden",
+    }
 
     return (
-        <div style={{padding: "1rem"}}>
+        <div style={styles}>
             <h1 style={{color: "#e0e1dd"}}>From your watchlist</h1>
             {isLoggedIn ? (
                 <Slider {...settings}>
