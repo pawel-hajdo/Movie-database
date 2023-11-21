@@ -1,7 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import MovieCard from "./movieCard";
 
-const movies = [
+const moviesFromWatchlist = [
     {
         title: "JOHN WICK",
         image: "https://fwcdn.pl/fpo/81/44/698144/7653663.3.jpg",
@@ -53,16 +53,26 @@ const movies = [
         desc: "Marty McFly, a 17-year-old high school student, is accidentally sent 30 years into the past in a time-traveling DeLorean invented by his close friend, the maverick scientist Doc Brown."
     },
 ]
-const MovieList = () => {
+const FromWatchlist = () => {
+
+    //const { isLoggedIn, login } = useAuth();
+    const { isLoggedIn, login } = useState(false); //temporary solution
 
     return (
         <div>
-            <div className="d-flex flex-row flex-wrap justify-content-center">
-                {movies.map((movie)=><MovieCard title = {movie.title} image = {movie.image} description = {movie.desc} />)}
-            </div>
+            <h1>From your watchlist</h1>
+            {isLoggedIn ? (
+                <div className="d-flex flex-row flex-wrap justify-content-center">
+                    {moviesFromWatchlist.map((movie)=><MovieCard title = {movie.title} image = {movie.image} description = {movie.desc} />)}
+                </div>
+            ): (
+                <div className="d-flex flex-column align-items-center">
+                    <p style = {{fontSize: "1.5rem"}}>You need to log in to see your watchlist.</p>
+                    <button onClick={login} className="btn btn-primary">Log In</button>
+                </div>
+            )}
         </div>
     )
-
 }
 
-export default MovieList;
+export default FromWatchlist;

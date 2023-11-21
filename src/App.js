@@ -1,11 +1,13 @@
 import Navbar from "./components/navbar";
 import {Outlet} from "react-router-dom";
-import MovieList from "./components/movieList";
+import TopRatedMovies from "./components/topRatedMovies";
+import FromWatchlist from "./components/FromWatchlist";
 function App() {
   return (
       <div className="container-fluid p-0">
         <Navbar />
-          <MovieList/>
+          <TopRatedMovies/>
+          <FromWatchlist/>
         <div className="container">
           <Outlet />
         </div>
