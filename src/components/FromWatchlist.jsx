@@ -59,15 +59,15 @@ const FromWatchlist = () => {
     const { isLoggedIn, login } = useState(false); //temporary solution
 
     return (
-        <div>
-            <h1>From your watchlist</h1>
+        <div style={{padding: "1rem"}}>
+            <h1 style={{color: "#e0e1dd"}}>From your watchlist</h1>
             {isLoggedIn ? (
                 <div className="d-flex flex-row flex-wrap justify-content-center">
                     {moviesFromWatchlist.map((movie)=><MovieCard title = {movie.title} image = {movie.image} description = {movie.desc} />)}
                 </div>
             ): (
                 <div className="d-flex flex-column align-items-center">
-                    <p style = {{fontSize: "1.5rem"}}>You need to log in to see your watchlist.</p>
+                    <p style = {{fontSize: "1.5rem", color:"#778da9"}}>You need to log in to see your watchlist.</p>
                     <button onClick={login} className="btn btn-primary">Log In</button>
                 </div>
             )}

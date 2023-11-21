@@ -56,8 +56,8 @@ const movies = [
 const TopRatedMovies = () => {
 
     return (
-        <div>
-            <h1>Top rated</h1>
+        <div style={{padding: "1rem"}}>
+            <h1 style={{color: "#e0e1dd"}}>Top rated</h1>
             <div className="d-flex flex-row flex-wrap justify-content-center">
                 {movies.map((movie)=><MovieCard title = {movie.title} image = {movie.image} description = {movie.desc} />)}
             </div>
