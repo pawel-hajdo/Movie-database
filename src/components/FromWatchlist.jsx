@@ -3,6 +3,7 @@ import MovieCard from "./movieCard";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import {Link} from "react-router-dom";
 
 const moviesFromWatchlist = [
     {
@@ -87,7 +88,7 @@ const FromWatchlist = () => {
             ): (
                 <div className="d-flex flex-column align-items-center">
                     <p style = {{fontSize: "1.5rem", color:"#778da9"}}>You need to log in to see your watchlist.</p>
-                    <button onClick={login} className="btn btn-primary">Log In</button>
+                    <Link to="/login" onClick={login} className="btn btn-primary">Log In</Link>
                 </div>
             )}
         </div>

@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap'
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Home from "./components/home";
+import LoginForm from "./components/loginForm";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,6 +16,7 @@ root.render(
           <Routes>
               <Route path = "/" element = {<App />}>
                 <Route index element={<Home/>}/>
+                <Route path="login" element={<LoginForm/>}/>
               </Route>
           </Routes>
 
