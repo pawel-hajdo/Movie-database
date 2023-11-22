@@ -75,11 +75,11 @@ const MovieRanking = () => {
     return (
         <div style={pageStyles}>
             <h1>Movies ranking</h1>
-            <div className={"d-flex flex-row justify-content-around pt-3"}>
+            <div className={"d-flex flex-row pt-3"}>
                 <div style={divStyles}>
                     {movies.map((movie)=><MovieCardLong title = {movie.title} image = {movie.image} description = {movie.desc} year = {movie.year}/>)}
                 </div>
-                <div style={{marginTop: "1rem"}}>
+                <div style={{marginTop: "1rem", paddingLeft: "4rem"}}>
                     <SortInput
                         options={[
                             { value: "title-asc", label: "Title Ascending" },

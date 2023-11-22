@@ -5,17 +5,20 @@ import { FaPlusSquare } from "react-icons/fa";
 import "./navbarStyles.css"
 const Navbar = () => {
     return (
-        <nav className="navbar navbar-dark bg-dark">
+        <nav className="navbar navbar-dark bg-dark" style={{fontSize: "1.5rem"}}>
             <div className="container-fluid d-flex justify-content-center">
                 <div className="nav nav-pills" id="pills-tab" role="tablist">
                     <Link to="/" className="nav-item nav-link " id="pills-home-tab" data-toggle="pill" role="tab"
                           aria-controls="pills-home" aria-selected="true">Home</Link>
-                    <Link to="#" className="nav-item nav-link dropdown-toggle" data-bs-toggle="dropdown" id="navbarDarkDropdownMenuLink" role="button"
-                          aria-controls="pills-home" aria-expanded="false">Films</Link>
-                    <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarScrollingDropdown" >
-                        <li><Link to = "all" className="dropdown-item d-flex justify-content-center">All films</Link></li>
-                        <li><Link to = "top100" className="dropdown-item d-flex justify-content-center" >Top 100</Link></li>
-                    </ul>
+                    <div className="dropdown">
+                        <div className="nav-item nav-link dropdown-toggle" data-bs-toggle="dropdown" id="navbarDarkDropdownMenuLink"
+                             aria-controls="pills-home" aria-expanded="false">Films</div>
+                        <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown"  >
+                            <li><Link to = "all" className="dropdown-item d-flex justify-content-center">All films</Link></li>
+                            <li><Link to = "top100" className="dropdown-item d-flex justify-content-center" >Top 100</Link></li>
+                        </ul>
+                    </div>
+
                 </div>
                 <div className="flex-row d-flex">
                     <form className="form-inline">
