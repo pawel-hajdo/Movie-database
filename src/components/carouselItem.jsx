@@ -13,6 +13,7 @@ const CarouselItem = (params) => {
         return params.description === undefined ? "" : params.description;
     };
 
+
     const itemStyle = {
         backgroundImage: `url(${getImage()})`,
         backgroundColor: "#0d1b2a",
@@ -20,7 +21,7 @@ const CarouselItem = (params) => {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         height: "50vh", // Dostosuj wysokość do własnych potrzeb
-        position: "relative",
+        position: "relative"
     };
 
     const captionStyle = {

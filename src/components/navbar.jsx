@@ -8,7 +8,7 @@ const Navbar = () => {
         <nav className="navbar navbar-dark bg-dark">
             <div className="container-fluid d-flex justify-content-center">
                 <div className="nav nav-pills" id="pills-tab" role="tablist">
-                    <Link to="/home" className="nav-item nav-link " id="pills-home-tab" data-toggle="pill" role="tab"
+                    <Link to="/" className="nav-item nav-link " id="pills-home-tab" data-toggle="pill" role="tab"
                           aria-controls="pills-home" aria-selected="true">Home</Link>
                     <Link to="#" className="nav-item nav-link dropdown-toggle" data-bs-toggle="dropdown" id="navbarDarkDropdownMenuLink" role="button"
                           aria-controls="pills-home" aria-expanded="false">Films</Link>
