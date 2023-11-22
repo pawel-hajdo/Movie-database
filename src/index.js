@@ -9,6 +9,7 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Home from "./components/home";
 import LoginForm from "./components/loginForm";
 import RegisterForm from "./components/registerForm";
+import MovieRanking from "./components/movieRanking";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,8 +18,9 @@ root.render(
           <Routes>
               <Route path = "/" element = {<App />}>
                 <Route index element={<Home/>}/>
-                <Route path="login" element={<LoginForm/>}/>
-                <Route path="register" element={<RegisterForm/>}/>
+                <Route path = "login" element={<LoginForm/>}/>
+                <Route path = "register" element={<RegisterForm/>}/>
+                <Route path = "all" element={<MovieRanking/>}/>
               </Route>
           </Routes>
 
