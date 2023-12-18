@@ -34,7 +34,7 @@ const Navbar = () => {
                           aria-controls="pills-home" aria-selected="true">
                         <FaPlusSquare/> Watchlist
                     </Link>
-                    <Link to="/login" className="nav-item nav-link " id="pills-home-tab" data-toggle="pill" role="tab"
+                    <Link to="/signin" className="nav-item nav-link " id="pills-home-tab" data-toggle="pill" role="tab"
                           aria-controls="pills-home" aria-selected="true">Log in</Link>
                 </div>
             </div>

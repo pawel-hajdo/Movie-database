@@ -18,9 +18,11 @@ root.render(
           <Routes>
               <Route path = "/" element = {<App />}>
                 <Route index element={<Home/>}/>
-                <Route path = "login" element={<LoginForm/>}/>
-                <Route path = "register" element={<RegisterForm/>}/>
+                <Route path = "signin" element={<LoginForm/>}/>
+                <Route path = "signup" element={<RegisterForm/>}/>
                 <Route path = "all" element={<MovieRanking/>}/>
+                <Route path = "details"/>
+                <Route path = "add"/>
               </Route>
           </Routes>
 

@@ -34,7 +34,7 @@ const LoginForm = () => {
                 <button type="submit" className="btn btn-primary mt-3">Sign in</button>
                 <div className="form-group d-flex flex-column mt-3">
                     <label htmlFor="createNewAccountButton">New?</label>
-                    <Link to="/register" className="btn btn-primary" id = "createNewAccountButton">Create new account</Link>
+                    <Link to="/signup" className="btn btn-primary" id = "createNewAccountButton">Create new account</Link>
                 </div>
 
             </form>

@@ -37,7 +37,7 @@ const RegisterForm = () => {
                 <button type="submit" className="btn btn-primary mt-3">Create account</button>
                 <div className="form-group d-flex flex-column mt-3">
                     <label htmlFor="createNewAccountButton">Already have an account?</label>
-                    <Link to="/login" className="btn btn-primary" id = "createNewAccountButton">Sign in</Link>
+                    <Link to="/signin" className="btn btn-primary" id = "createNewAccountButton">Sign in</Link>
                 </div>
 
             </form>
