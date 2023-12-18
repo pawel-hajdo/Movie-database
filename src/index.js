@@ -6,10 +6,10 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap'
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import Home from "./components/home";
-import LoginForm from "./components/loginForm";
-import RegisterForm from "./components/registerForm";
-import MovieRanking from "./components/movieRanking";
+import Home from "./pages/home";
+import LoginForm from "./pages/loginForm";
+import RegisterForm from "./pages/registerForm";
+import MovieRanking from "./pages/movieRanking";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

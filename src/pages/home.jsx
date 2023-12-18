@@ -1,7 +1,7 @@
 import React from "react";
-import TopRatedMovies from "./topRatedMovies";
-import FromWatchlist from "./FromWatchlist";
-import Carousel from "./carousel";
+import TopRatedMovies from "../components/topRatedMovies";
+import FromWatchlist from "../components/FromWatchlist";
+import Carousel from "../components/carousel";
 
 const homeStyle = {
     paddingLeft: "20rem",

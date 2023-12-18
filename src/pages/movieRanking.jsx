@@ -1,6 +1,6 @@
 import React from "react";
-import MovieCardLong from "./movieCardLong";
-import SortInput from "./sortInput";
+import MovieCardLong from "../components/movieCardLong";
+import SortInput from "../components/sortInput";
 
 const movies = [
     {
