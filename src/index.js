@@ -10,6 +10,7 @@ import Home from "./pages/home";
 import LoginForm from "./pages/loginForm";
 import RegisterForm from "./pages/registerForm";
 import MovieRanking from "./pages/movieRanking";
+import MovieDetailsPage from "./pages/movieDetailsPage";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,7 +22,7 @@ root.render(
                 <Route path = "signin" element={<LoginForm/>}/>
                 <Route path = "signup" element={<RegisterForm/>}/>
                 <Route path = "all" element={<MovieRanking/>}/>
-                <Route path = "details"/>
+                <Route path = "details/:title" element={<MovieDetailsPage/>}/>
                 <Route path = "add"/>
               </Route>
           </Routes>

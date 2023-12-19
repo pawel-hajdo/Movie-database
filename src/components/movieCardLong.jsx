@@ -1,5 +1,6 @@
 import React from "react";
 import noImage from "../assets/movieNoImage.png";
+import {Link} from "react-router-dom";
 
 
 const MovieCardLong = (params) => {
@@ -22,7 +23,8 @@ const MovieCardLong = (params) => {
     const cardStyle = {
         height: "10rem",
         maxWidth: "50rem",
-        border: "1px black"
+        border: "1px black",
+        textDecoration: "none"
     }
 
     const imageStyle = {
@@ -32,8 +34,17 @@ const MovieCardLong = (params) => {
         width: "100%",
     };
 
+    const movieParams = {
+        image: getImage(),
+        title: getTitle(),
+        description: getDescription()
+    }
+
     return (
-        <div className="card mb-3" style={cardStyle}>
+        <Link to={{
+            pathname: `/details/${encodeURIComponent(getTitle())}`,
+            state: movieParams,
+        }} className="card mb-3" style={cardStyle}>
             <div className="row no-gutters">
                 <div className="col-md-2">
                     <img src={getImage()} className="card-img" alt="" style={imageStyle}/>
@@ -45,7 +56,7 @@ const MovieCardLong = (params) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </Link>
     )
 }
 

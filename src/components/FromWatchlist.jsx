@@ -88,7 +88,7 @@ const FromWatchlist = () => {
             ): (
                 <div className="d-flex flex-column align-items-center">
                     <p style = {{fontSize: "1.5rem", color:"#778da9"}}>You need to log in to see your watchlist.</p>
-                    <Link to="/login" onClick={login} className="btn btn-primary">Log In</Link>
+                    <Link to="/signin" onClick={login} className="btn btn-primary">Log In</Link>
                 </div>
             )}
         </div>

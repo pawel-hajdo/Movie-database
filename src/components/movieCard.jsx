@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import noImage from "../assets/movieNoImage.png"
+import {Link} from "react-router-dom";
 const MovieCard = (params) => {
 
     const [isHovered, setIsHovered] = useState(false);
@@ -28,6 +29,7 @@ const MovieCard = (params) => {
         display: "flex",
         flexDirection: "column",
         overflow: "hidden",
+        textDecoration: "none"
     };
 
     const imageStyle = {
@@ -41,8 +43,17 @@ const MovieCard = (params) => {
         padding: "0.5rem",
     };
 
+    const movieParams = {
+        image: getImage(),
+        title: getTitle(),
+        description: getDescription()
+    }
+
     return (
-        <div
+        <Link to={{
+            pathname: `/details/${encodeURIComponent(getTitle())}`,
+            state: movieParams,
+        }}
             className="card text-bg-dark rounded-lg m-2 border-dark"
             style={cardStyle}
             onMouseEnter={handleMouseEnter}
@@ -60,7 +71,7 @@ const MovieCard = (params) => {
                     <p className="card-text">{getDescription()}</p>
                 </div>
             )}
-        </div>
+        </Link>
     )
 
 }
