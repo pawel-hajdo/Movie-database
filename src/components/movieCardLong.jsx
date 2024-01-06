@@ -16,10 +16,6 @@ const MovieCardLong = (params) => {
         return params.description === undefined ? "" : params.description;
     };
 
-    const getYear = () => {
-        return params.year === undefined ? "" : params.year;
-    };
-
     const cardStyle = {
         height: "10rem",
         maxWidth: "50rem",
