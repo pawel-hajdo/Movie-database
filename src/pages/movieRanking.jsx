@@ -21,8 +21,9 @@ const MovieRanking = () => {
                 break;
             case "default":
                 setMovies((prevMovies) => [...prevMovies].sort((a,b) => a.id.localeCompare(b.id)));
-
+                break;
             default:
+                break;
         }
     }
 
@@ -36,7 +37,7 @@ const MovieRanking = () => {
                 <div style={{marginTop: "1rem", paddingLeft: "4rem"}}>
                     <SortInput
                         options={[
-                            { value: "default", label: "Default" },
+                            //{ value: "default", label: "Default" },
                             { value: "title-asc", label: "Title Ascending" },
                             { value: "title-desc", label: "Title Descending" },
                         ]}

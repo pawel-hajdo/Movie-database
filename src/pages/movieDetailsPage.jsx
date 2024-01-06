@@ -8,7 +8,7 @@ const MovieDetailsPage = () => {
 
     useEffect(() => {
         getMovieDetails(decodeURIComponent(id)).then(setMovieDetails);
-    }, []);
+    }, [id]);
 
     return (
         <div style={pageStyles}>

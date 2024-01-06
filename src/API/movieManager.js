@@ -13,3 +13,12 @@ export const getMovieDetails = (movieId) => {
         .then(response => {return response.data})
         .catch(error => console.log(error));
 }
+
+export const postMovie = (title, image, content) => {
+    axios.post(`${baseURL}/movies`,{
+        title: title,
+        image: image,
+        content: content
+    }).then(response => {console.log(response)})
+        .catch(error => console.log(error))
+}

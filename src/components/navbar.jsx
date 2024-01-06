@@ -30,9 +30,12 @@ const Navbar = () => {
                 </div>
                 <div className="nav nav-pills" id="pills-tab" role="tablist">
 
-                    <Link to="/watchlist" className="nav-item nav-link " id="pills-home-tab" data-toggle="pill" role="tab"
+                    <Link to="/add" className="nav-item nav-link " id="pills-home-tab" data-toggle="pill" role="tab"
                           aria-controls="pills-home" aria-selected="true">
-                        <FaPlusSquare/> Watchlist
+                        <FaPlusSquare/> Add
+                    </Link>
+                    <Link to="/watchlist" className="nav-item nav-link " id="pills-home-tab" data-toggle="pill" role="tab"
+                          aria-controls="pills-home" aria-selected="true">Watchlist
                     </Link>
                     <Link to="/signin" className="nav-item nav-link " id="pills-home-tab" data-toggle="pill" role="tab"
                           aria-controls="pills-home" aria-selected="true">Log in</Link>
