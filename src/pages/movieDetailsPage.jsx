@@ -1,30 +1,32 @@
-import React from "react";
-import {useLocation, useParams} from 'react-router-dom';
+import React, {useEffect, useState} from "react";
+import {useParams} from 'react-router-dom';
+import {getMovieDetails} from "../API/movieManager";
 const MovieDetailsPage = () => {
 
-    const { title } = useParams();
-    const location = useLocation();
-    const params = location.state;
+    const { id } = useParams();
+    const [movieDetails, setMovieDetails] = useState(null);
 
-    const getImage = () => (params && params.image) ? params.image : "Brak obrazu";
-    const getTitle = () => (title) ? decodeURIComponent(title) : "Brak tytułu";
-    const getDescription = () => (params && params.description) ? params.description : "Brak opisu";
+    useEffect(() => {
+        getMovieDetails(decodeURIComponent(id)).then(setMovieDetails);
+    }, []);
 
     return (
         <div style={pageStyles}>
+            {movieDetails &&
             <div className="card mb-3" style={cardStyle}>
                 <div className="row no-gutters">
                     <div className="col-md-2">
-                        <img src={getImage()} className="card-img" alt="" style={imageStyle}/>
+                        <img src={movieDetails.image} className="card-img" alt="" style={imageStyle}/>
                     </div>
                     <div className="col-md-8">
                         <div className="card-body">
-                            <h5 className="card-title">{getTitle()}</h5>
-                            <p className="card-text">{getDescription()}</p>
+                            <h5 className="card-title">{movieDetails.title}</h5>
+                            <p className="card-text">{movieDetails.content}</p>
                         </div>
                     </div>
                 </div>
             </div>
+            }
         </div>
     )
 }

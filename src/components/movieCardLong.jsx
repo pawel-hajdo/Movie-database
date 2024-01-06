@@ -16,6 +16,10 @@ const MovieCardLong = (params) => {
         return params.description === undefined ? "" : params.description;
     };
 
+    const getId = () => {
+        return params.id;
+    }
+
     const cardStyle = {
         height: "10rem",
         maxWidth: "50rem",
@@ -30,16 +34,10 @@ const MovieCardLong = (params) => {
         width: "100%",
     };
 
-    const movieParams = {
-        image: getImage(),
-        title: getTitle(),
-        description: getDescription()
-    }
 
     return (
         <Link to={{
-            pathname: `/details/${encodeURIComponent(getTitle())}`,
-            state: movieParams,
+            pathname: `/details/${encodeURIComponent(getId())}`,
         }} className="card mb-3" style={cardStyle}>
             <div className="row no-gutters">
                 <div className="col-md-2">

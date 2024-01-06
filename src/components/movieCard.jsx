@@ -23,6 +23,10 @@ const MovieCard = (params) => {
         return params.description === undefined ? "" : params.description;
     };
 
+    const getId = () => {
+        return params.id;
+    }
+
     const cardStyle = {
         height: isHovered ? "30rem" : "15rem",
         transition: "height 0.25s",
@@ -43,16 +47,9 @@ const MovieCard = (params) => {
         padding: "0.5rem",
     };
 
-    const movieParams = {
-        image: getImage(),
-        title: getTitle(),
-        description: getDescription()
-    }
-
     return (
         <Link to={{
-            pathname: `/details/${encodeURIComponent(getTitle())}`,
-            state: movieParams,
+            pathname: `/details/${encodeURIComponent(getId())}`,
         }}
             className="card text-bg-dark rounded-lg m-2 border-dark"
             style={cardStyle}

@@ -23,7 +23,7 @@ root.render(
                 <Route path = "signin" element={<LoginForm/>}/>
                 <Route path = "signup" element={<RegisterForm/>}/>
                 <Route path = "all" element={<MovieRanking/>}/>
-                <Route path = "details/:title" element={<MovieDetailsPage/>}/>
+                <Route path = "details/:id" element={<MovieDetailsPage/>}/>
                 <Route path = "add" element={<AddForm/>}/>
               </Route>
           </Routes>
