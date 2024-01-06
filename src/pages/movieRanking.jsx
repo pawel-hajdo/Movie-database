@@ -11,21 +11,36 @@ const MovieRanking = () => {
         getMovies().then(setMovies)
     }, []);
 
+    const handleSortChange = (selectedOption) => {
+        switch (selectedOption){
+            case "title-asc":
+                setMovies((prevMovies) => [...prevMovies].sort((a, b) => a.title.localeCompare(b.title)));
+                break;
+            case "title-desc":
+                setMovies((prevMovies) => [...prevMovies].sort((a, b) => b.title.localeCompare(a.title)));
+                break;
+            case "default":
+                setMovies((prevMovies) => [...prevMovies].sort((a,b) => a.id.localeCompare(b.id)));
+
+            default:
+        }
+    }
+
     return (
         <div style={pageStyles}>
             <h1>Movies ranking</h1>
             <div className={"d-flex flex-row pt-3"}>
                 <div style={divStyles}>
-                    {movies.map((movie)=><MovieCardLong title = {movie.title} image = {movie.image} description = {movie.content} id = {movie.id}/>)}
+                    {movies.map((movie, key)=><MovieCardLong key = {key} title = {movie.title} image = {movie.image} description = {movie.content} id = {movie.id}/>)}
                 </div>
                 <div style={{marginTop: "1rem", paddingLeft: "4rem"}}>
                     <SortInput
                         options={[
+                            { value: "default", label: "Default" },
                             { value: "title-asc", label: "Title Ascending" },
                             { value: "title-desc", label: "Title Descending" },
                         ]}
-                        defaultOption="title-asc"
-                        //onSortChange={handleSortChange}
+                        onSortChange={handleSortChange}
                     />
                 </div>
             </div>
