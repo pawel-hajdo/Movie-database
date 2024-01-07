@@ -1,34 +1,28 @@
 import React, {useState} from "react";
-import {Link} from "react-router-dom";
+import {postMovie} from "../API/movieManager";
 
 const AddForm = () => {
 
     const [movieTitle, setMovieTitle] = useState("");
-    const [movieCover, setMovieCover] = useState(null);
-    const [description, setDescription] = useState("");
-    const [releaseYear, setReleaseYear] = useState("");
-
-    const handleFileChange = (e) => {
-        const file = e.target.files[0];
-        setMovieCover(file);
+    const [movieCover, setMovieCover] = useState("");
+    const [movieDescription, setMovieDescription] = useState("");
 
     const handleSubmit = (e) => {
-    }
+        postMovie(movieTitle, movieCover, movieDescription);
     }
 
     const resetForm = () => {
         setMovieTitle("");
-        setMovieCover(null);
-        setDescription("");
-        setReleaseYear("");
+        setMovieCover("");
+        setMovieDescription("");
     };
 
     return (
-        <div style={pageStyles} className="pt-3">
+        <div style={pageStyles} className="pt-4 pb-4">
             <form
                 style={formStyles}
                 className="d-flex flex-column"
-                //onSubmit={handleSubmit}
+                onSubmit={handleSubmit}
             >
                 <h2>Add movie</h2>
                 <div className="form-group mt-2">
@@ -43,13 +37,14 @@ const AddForm = () => {
                     />
                 </div>
                 <div className="form-group mt-2">
-                    <label htmlFor="inputMovieCover">Movie cover</label>
+                    <label htmlFor="inputMovieCover">Movie Cover</label>
                     <input
-                        type="file"
+                        type="text"
                         className="form-control"
                         id="inputMovieCover"
-                        accept="image/*"
-                        onChange={handleFileChange}
+                        placeholder="Enter link to movie cover"
+                        value={movieCover}
+                        onChange={(e) => setMovieCover(e.target.value)}
                     />
                 </div>
                 <div className="form-group mt-2">
@@ -58,19 +53,9 @@ const AddForm = () => {
                         className="form-control"
                         id="inputDescription"
                         placeholder="Enter description"
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                    />
-                </div>
-                <div className="form-group mt-2">
-                    <label htmlFor="inputReleaseYear">Release year</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="inputReleaseYear"
-                        placeholder="Enter release year"
-                        value={releaseYear}
-                        onChange={(e) => setReleaseYear(e.target.value)}
+                        rows="10"
+                        value={movieDescription}
+                        onChange={(e) => setMovieDescription(e.target.value)}
                     />
                 </div>
                 <div className="d-flex justify-content-between mt-3">

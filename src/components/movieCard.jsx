@@ -15,21 +15,19 @@ const MovieCard = (params) => {
     const getImage = () => {
         return (params.image === undefined) ? noImage : params.image;
     }
-    const getTitle = () => {
-        return (params.title === undefined) ? "No title" : params.title;
+    const getId = () => {
+        return params.id;
     }
 
-    const getDescription = () => {
-        return params.description === undefined ? "" : params.description;
-    };
-
     const cardStyle = {
-        height: isHovered ? "30rem" : "15rem",
-        transition: "height 0.25s",
+        height: "15rem",
+        scale: isHovered ? "1.1" : "1.00",
+        transition: "all ease 0.25s",
         display: "flex",
         flexDirection: "column",
         overflow: "hidden",
-        textDecoration: "none"
+        textDecoration: "none",
+        boxShadow: "8px 4px 4px rgba(0, 0, 0, 0.3)"
     };
 
     const imageStyle = {
@@ -43,16 +41,9 @@ const MovieCard = (params) => {
         padding: "0.5rem",
     };
 
-    const movieParams = {
-        image: getImage(),
-        title: getTitle(),
-        description: getDescription()
-    }
-
     return (
         <Link to={{
-            pathname: `/details/${encodeURIComponent(getTitle())}`,
-            state: movieParams,
+            pathname: `/details/${encodeURIComponent(getId())}`,
         }}
             className="card text-bg-dark rounded-lg m-2 border-dark"
             style={cardStyle}
@@ -65,12 +56,6 @@ const MovieCard = (params) => {
                 alt="movie cover"
                 style={imageStyle}
             />
-            {isHovered && (
-                <div style={textContainerStyle}>
-                    <h5 className="card-title">{getTitle()}</h5>
-                    <p className="card-text">{getDescription()}</p>
-                </div>
-            )}
         </Link>
     )
 

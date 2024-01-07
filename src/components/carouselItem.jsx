@@ -1,5 +1,6 @@
 import React from "react";
 import noImage from "../assets/movieNoImage.png";
+import {Link} from "react-router-dom";
 
 const CarouselItem = (params) => {
     const getImage = () => {
@@ -20,7 +21,7 @@ const CarouselItem = (params) => {
         backgroundSize: "contain",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        height: "50vh", // Dostosuj wysokość do własnych potrzeb
+        height: "50vh",
         position: "relative"
     };
 
@@ -29,15 +30,19 @@ const CarouselItem = (params) => {
         top: "50%",
         left: "50%",
         transform: "translate(-50%, -50%)",
-        color: "#fff", // Kolor tekstu
+        color: "#fff",
         textAlign: "center",
     };
 
     const itemClassName = `carousel-item ${params.isActive ? 'active' : ''}`;
 
     return (
-        <div className={itemClassName}  style={itemStyle}>
-        </div>
+        <Link to={{
+            pathname: `/details/${encodeURIComponent(params.id)}`,
+        }}>
+            <div className={itemClassName} style={itemStyle}>
+            </div>
+        </Link>
     )
 }
 
