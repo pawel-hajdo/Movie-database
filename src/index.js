@@ -5,13 +5,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap'
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import {BrowserRouter, Navigate, Route, Routes} from 'react-router-dom';
 import Home from "./pages/home";
 import LoginForm from "./pages/loginForm";
 import RegisterForm from "./pages/registerForm";
 import MovieRanking from "./pages/movieRanking";
 import MovieDetailsPage from "./pages/movieDetailsPage";
 import AddForm from "./pages/addForm";
+import { isExpired } from "react-jwt";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -23,8 +24,8 @@ root.render(
                 <Route path = "signin" element={<LoginForm/>}/>
                 <Route path = "signup" element={<RegisterForm/>}/>
                 <Route path = "all" element={<MovieRanking/>}/>
-                <Route path = "details/:title" element={<MovieDetailsPage/>}/>
-                <Route path = "add" element={<AddForm/>}/>
+                <Route path = "details/:id" element={<MovieDetailsPage/>}/>
+                <Route path = "add" element={isExpired(localStorage.getItem('token')) ? <Navigate replace to ="/"/> : <AddForm/>}/>
               </Route>
           </Routes>
 

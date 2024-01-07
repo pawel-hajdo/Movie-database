@@ -6,8 +6,7 @@ const SortInput = ({ options, defaultOption, onSortChange }) => {
         const selectedOption = e.target.value;
         setSelectedSort(selectedOption);
 
-        // Przekazuje wybraną opcję sortowania do komponentu nadrzędnego
-        //onSortChange(selectedOption);
+        onSortChange(selectedOption);
     };
 
     return (
