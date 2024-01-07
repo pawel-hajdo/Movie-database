@@ -24,9 +24,9 @@ const MovieDetailsPage = () => {
     }
 
     return (
-        <div style={pageStyles}>
+        <div style={pageStyles} className="pt-4 pb-4">
             {movieDetails &&
-            <div className="card text-bg-dark rounded-lg m-2 border-dark" style={cardStyle}>
+            <div className="card text-bg-dark rounded-lg border-dark" style={cardStyle}>
                 <div className="row no-gutters d-flex flex-column h-100">
                     <div className="col-md-2">
                         <img src={movieDetails.image}

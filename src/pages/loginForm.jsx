@@ -48,7 +48,7 @@ const LoginForm = () => {
     };
 
     return (
-        <div style={pageStyles} className="pt-3">
+        <div style={pageStyles} className="pt-4 pb-4">
             <form
                 style={formStyles}
                 className="d-flex flex-column"

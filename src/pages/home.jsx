@@ -18,7 +18,7 @@ const Home = () => {
     }, []);
 
     return (
-        <div style={homeStyle}>
+        <div style={homeStyle} className="pt-4 pb-4">
             <Carousel movies = {movies.slice(0, 5)}/>
             <RecommendedMovies movies = {movies}/>
             <FromWatchlist/>

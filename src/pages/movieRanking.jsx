@@ -30,7 +30,7 @@ const MovieRanking = () => {
     return (
         <div style={pageStyles}>
             <h1>Movies ranking</h1>
-            <div className={"d-flex flex-row pt-3"}>
+            <div className={"d-flex flex-row pt-4 pb-4"}>
                 <div style={divStyles}>
                     {movies.map((movie, key)=><MovieCardLong key = {key} title = {movie.title} image = {movie.image} description = {movie.content} id = {movie.id}/>)}
                 </div>
