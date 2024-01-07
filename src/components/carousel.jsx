@@ -28,6 +28,7 @@ const Carousel = (props) => {
                         key={index}
                         title = {movie.title}
                         image = {movie.image}
+                        id = {movie.id}
                         isActive={index === 0}
                     />
                 )}

@@ -13,15 +13,19 @@ const MovieDetailsPage = () => {
     return (
         <div style={pageStyles}>
             {movieDetails &&
-            <div className="card mb-3" style={cardStyle}>
+            <div className="card text-bg-dark rounded-lg m-2 border-dark" style={cardStyle}>
                 <div className="row no-gutters">
                     <div className="col-md-2">
-                        <img src={movieDetails.image} className="card-img" alt="" style={imageStyle}/>
+                        <img src={movieDetails.image}
+                             className="card-img m-3"
+                             alt=""
+                             style={imageStyle}
+                        />
                     </div>
                     <div className="col-md-8">
                         <div className="card-body">
-                            <h5 className="card-title">{movieDetails.title}</h5>
-                            <p className="card-text">{movieDetails.content}</p>
+                            <h2 className="card-title">{movieDetails.title}</h2>
+                            <p className="card-text mt-4" >{movieDetails.content}</p>
                         </div>
                     </div>
                 </div>
@@ -32,7 +36,7 @@ const MovieDetailsPage = () => {
 }
 
 const cardStyle = {
-    height: "10rem",
+    height: "20rem",
     maxWidth: "100rem",
     border: "1px black",
     textDecoration: "none"
@@ -41,11 +45,11 @@ const cardStyle = {
 const imageStyle = {
     flex: "1",
     objectFit: "fill",
-    maxHeight: "10rem",
+    maxHeight: "20rem",
     width: "100%",
 };
 
-const pageStyles={
+const pageStyles= {
     paddingLeft: "20rem",
     paddingRight: "20rem",
     backgroundColor: "#1b263b",
