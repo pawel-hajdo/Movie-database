@@ -11,3 +11,12 @@ export const registerUser = (name, email, password) => {
         .then(response => {return response.data})
         .catch(error => {throw error})
 }
+
+export const authUser = (login, password) => {
+    return axios.post(`${baseURL}/auth`,{
+        login: login,
+        password: password
+    })
+        .then(response => {return response.data})
+        .catch(error => {throw error})
+}

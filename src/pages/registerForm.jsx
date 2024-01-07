@@ -9,10 +9,11 @@ const RegisterForm = () => {
     const [userPassword, setUserPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [errors, setErrors] = useState({});
+
     const navigate = useNavigate()
 
     const handleChangeRoute = () => {
-        navigate('/');
+        navigate('/signin');
         window.location.reload();
     };
 
@@ -66,7 +67,7 @@ const RegisterForm = () => {
             >
                 <h2>Create account</h2>
                 <div className="form-group mt-2" >
-                    <label htmlFor= "inputEmail">Name</label>
+                    <label htmlFor= "inputName">Name</label>
                     <input
                         type="text"
                         className="form-control"
@@ -108,7 +109,7 @@ const RegisterForm = () => {
                     )}
                 </div>
                 <div className="form-group mt-2">
-                    <label htmlFor="inputPassword">Re-enter password</label>
+                    <label htmlFor="inputConfirmPassword">Re-enter password</label>
                     <input
                         type="password"
                         className="form-control"
@@ -138,8 +139,8 @@ const RegisterForm = () => {
 }
 
 const pageStyles = {
-    paddingLeft: "40%",
-    paddingRight: "40%",
+    paddingLeft: "35%",
+    paddingRight: "35%",
     backgroundColor: "#1b263b",
     color: "white"
 }
