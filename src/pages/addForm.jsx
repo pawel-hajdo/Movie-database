@@ -5,15 +5,17 @@ const AddForm = () => {
 
     const [movieTitle, setMovieTitle] = useState("");
     const [movieCover, setMovieCover] = useState("");
+    const [movieYear, setYear] = useState("");
     const [movieDescription, setMovieDescription] = useState("");
 
     const handleSubmit = (e) => {
-        postMovie(movieTitle, movieCover, movieDescription);
+        postMovie(movieTitle, movieCover, movieDescription, movieYear);
     }
 
     const resetForm = () => {
         setMovieTitle("");
         setMovieCover("");
+        setYear("");
         setMovieDescription("");
     };
 
@@ -45,6 +47,17 @@ const AddForm = () => {
                         placeholder="Enter link to movie cover"
                         value={movieCover}
                         onChange={(e) => setMovieCover(e.target.value)}
+                    />
+                </div>
+                <div className="form-group mt-2">
+                    <label htmlFor="inputMovieYear">Year</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="inputMovieTitle"
+                        placeholder="Enter publication year"
+                        value={movieYear}
+                        onChange={(e) => setYear(e.target.value)}
                     />
                 </div>
                 <div className="form-group mt-2">

@@ -24,7 +24,7 @@ const MovieDetailsPage = () => {
     }
 
     const getYear = () => {
-        return movieDetails.publicationYear === undefined ? "no info" : movieDetails.publicationYear;
+        return movieDetails.productionYear === undefined ? "no info" : movieDetails.productionYear;
     }
 
     return (
