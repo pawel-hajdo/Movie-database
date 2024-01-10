@@ -4,6 +4,7 @@ import { FaSearch } from "react-icons/fa";
 import { FaPlusSquare } from "react-icons/fa";
 import "./navbarStyles.css"
 import { isExpired, decodeToken  } from "react-jwt";
+import {logoutUser} from "../API/userManager";
 
 const Navbar = () => {
 
@@ -15,9 +16,9 @@ const Navbar = () => {
     }, [isLoggedIn]);
 
     const handleLogout = () => {
+        logoutUser(user.userId);
         localStorage.removeItem('token');
         setIsLoggedIn(false);
-        window.location.reload();
     };
 
     return (

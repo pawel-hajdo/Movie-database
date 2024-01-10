@@ -20,3 +20,9 @@ export const authUser = (login, password) => {
         .then(response => {return response.data})
         .catch(error => {throw error})
 }
+
+export const logoutUser = (userId) => {
+    axios.delete(`${baseURL}/logout/${userId}`)
+        .then(response => {console.log(response)})
+        .catch(error => console.log(error))
+}
