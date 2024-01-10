@@ -23,12 +23,10 @@ export const postMovie = (title, image, content) => {
         .catch(error => console.log(error))
 }
 
-export const deleteMovie = (movieId) => {
+export const deleteMovie = (movieId, token) => {
     axios.delete(`${baseURL}/movie/${movieId}`,{
         headers: {
-            'Accept': 'application/json',
-            'Content-Type': ' application/json',
-            'x-auth-token': localStorage.getItem('token')
+            Authorization: `Bearer ${token}`
     }})
         .then(response => {console.log(response)})
         .catch(error => console.log(error))

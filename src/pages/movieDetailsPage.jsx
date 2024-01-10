@@ -6,8 +6,9 @@ const MovieDetailsPage = () => {
 
     const { id } = useParams();
     const [movieDetails, setMovieDetails] = useState(null);
-    const isLoggedIn = !isExpired(localStorage.getItem('token'));
-    const user = decodeToken(localStorage.getItem('token'));
+    const token = localStorage.getItem('token')
+    const isLoggedIn = !isExpired(token);
+    const user = decodeToken(token);
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -17,9 +18,8 @@ const MovieDetailsPage = () => {
     const handleDeleteMovie = () => {
         const confirmDelete = window.confirm("Are you sure you want to delete this movie?");
         if(confirmDelete){
-            deleteMovie(id);
-            //navigate('/');
-            //window.location.reload();
+            deleteMovie(id, token);
+            navigate('/');
         }
     }
 
@@ -57,7 +57,7 @@ const MovieDetailsPage = () => {
 }
 
 const cardStyle = {
-    height: "20rem",
+    height: "25rem",
     maxWidth: "100rem",
     border: "1px black",
     textDecoration: "none"
