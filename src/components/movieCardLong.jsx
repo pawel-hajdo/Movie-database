@@ -23,9 +23,12 @@ const MovieCardLong = (params) => {
     }
 
     const getDescription = () => {
-        return params.description === undefined ? "" : params.description;
+        return params.description === undefined ? "No description" : params.description;
     };
 
+    const getYear = () => {
+        return params.year === undefined ? "no info" : params.year;
+    }
     const getId = () => {
         return params.id;
     }
@@ -59,9 +62,10 @@ const MovieCardLong = (params) => {
                 <div className="col-md-2">
                     <img src={getImage()} className="card-img" alt="" style={imageStyle}/>
                 </div>
-                <div className="col-md-8">
+                <div className="col-md-10">
                     <div className="card-body">
                         <h5 className="card-title">{getTitle()}</h5>
+                        <h6 className="card-subtitle">{getYear()}</h6>
                         <p className="card-text">{getDescription()}</p>
                     </div>
                 </div>

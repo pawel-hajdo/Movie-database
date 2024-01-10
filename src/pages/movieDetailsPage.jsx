@@ -23,6 +23,10 @@ const MovieDetailsPage = () => {
         }
     }
 
+    const getYear = () => {
+        return movieDetails.publicationYear === undefined ? "no info" : movieDetails.publicationYear;
+    }
+
     return (
         <div style={pageStyles} className="pt-4 pb-4">
             {movieDetails &&
@@ -35,9 +39,10 @@ const MovieDetailsPage = () => {
                              style={imageStyle}
                         />
                     </div>
-                    <div className="col-md-8">
+                    <div className="col-md-10">
                         <div className="card-body">
                             <h2 className="card-title">{movieDetails.title}</h2>
+                            <h6 className="card-subtitle">Publication year: {getYear()}</h6>
                             <p className="card-text mt-4">{movieDetails.content}</p>
                         </div>
                     </div>
@@ -57,7 +62,7 @@ const MovieDetailsPage = () => {
 }
 
 const cardStyle = {
-    height: "25rem",
+    height: "20rem",
     maxWidth: "100rem",
     border: "1px black",
     textDecoration: "none"

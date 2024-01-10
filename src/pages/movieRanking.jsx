@@ -32,7 +32,7 @@ const MovieRanking = () => {
             <h1>Movies ranking</h1>
             <div className={"d-flex flex-row pt-4 pb-4"}>
                 <div style={divStyles}>
-                    {movies.map((movie, key)=><MovieCardLong key = {key} title = {movie.title} image = {movie.image} description = {movie.content} id = {movie.id}/>)}
+                    {movies.map((movie, key)=><MovieCardLong key = {key} title = {movie.title} image = {movie.image} description = {movie.content} id = {movie.id} year = {movie.publicationYear}/>)}
                 </div>
                 <div style={{marginTop: "1rem", paddingLeft: "4rem"}}>
                     <SortInput
