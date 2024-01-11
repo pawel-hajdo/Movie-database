@@ -23,8 +23,13 @@ const MovieCardLong = (params) => {
     }
 
     const getDescription = () => {
-        return params.description === undefined ? "No description" : params.description;
+        const description = params.description === undefined ? "No description" : params.description;
+        const words = description.split(' ');
+        const limitedDescription = words.slice(0, 40).join(' ');
+
+        return words.length > 40 ? `${limitedDescription}...` : limitedDescription;
     };
+
 
     const getYear = () => {
         return params.year === undefined ? "no info" : params.year;
@@ -36,7 +41,7 @@ const MovieCardLong = (params) => {
     const cardStyle = {
         scale: isHovered ? "1.03" : "1.00",
         height: "10rem",
-        maxWidth: "50rem",
+        maxWidth: "100%",
         textDecoration: "none",
         boxShadow: "8px 4px 4px rgba(0, 0, 0, 0.3)"
     }

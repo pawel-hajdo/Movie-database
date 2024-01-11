@@ -50,8 +50,8 @@ const MovieRanking = () => {
 }
 
 const pageStyles={
-    paddingLeft: "20rem",
-    paddingRight: "20rem",
+    paddingLeft: "20%",
+    paddingRight: "20%",
     backgroundColor: "#1b263b",
     color: "white",
     paddingTop: "2rem"

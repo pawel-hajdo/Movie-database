@@ -63,7 +63,7 @@ const MovieDetailsPage = () => {
 
 const cardStyle = {
     height: "20rem",
-    maxWidth: "100rem",
+    maxWidth: "100%",
     border: "1px black",
     textDecoration: "none"
 }

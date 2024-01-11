@@ -85,8 +85,8 @@ const AddForm = () => {
 };
 
 const pageStyles = {
-    paddingLeft: "45rem",
-    paddingRight: "45rem",
+    paddingLeft: "35%",
+    paddingRight: "35%",
     backgroundColor: "#1b263b",
     color: "white"
 }
