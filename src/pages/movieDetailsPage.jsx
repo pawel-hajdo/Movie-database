@@ -6,14 +6,36 @@ const MovieDetailsPage = () => {
 
     const { id } = useParams();
     const [movieDetails, setMovieDetails] = useState(null);
-    const token = localStorage.getItem('token')
+    const token = localStorage.getItem('token');
     const isLoggedIn = !isExpired(token);
     const user = decodeToken(token);
+    const userId = user.userId;
     const navigate = useNavigate()
+    const [isInWatchlist, setIsInWatchlist] = useState(false);
 
     useEffect(() => {
         getMovieDetails(decodeURIComponent(id)).then(setMovieDetails);
-    }, [id]);
+        checkWatchlist();
+    }, [id, userId]);
+
+    const checkWatchlist = () => {
+        const moviesInWatchlist = JSON.parse(localStorage.getItem(userId + ' watchlist')) || [];
+        setIsInWatchlist(moviesInWatchlist.some(movie => movie.id === id));
+    };
+    const handleToggleWatchlist = () => {
+        const moviesInWatchlist = JSON.parse(localStorage.getItem(userId + ' watchlist')) || [];
+        const movie = { id, image: movieDetails?.image || "" };
+
+        if (isInWatchlist) {
+            const updatedWatchlist = moviesInWatchlist.filter(movie => movie.id !== id);
+            localStorage.setItem(userId + ' watchlist', JSON.stringify(updatedWatchlist));
+        } else {
+            moviesInWatchlist.push(movie);
+            localStorage.setItem(userId + ' watchlist', JSON.stringify(moviesInWatchlist));
+        }
+
+        setIsInWatchlist(!isInWatchlist);
+    };
 
     const handleDeleteMovie = () => {
         const confirmDelete = window.confirm("Are you sure you want to delete this movie?");
@@ -39,7 +61,9 @@ const MovieDetailsPage = () => {
                              style={imageStyle}
                         />
                         {isLoggedIn && (
-                            <button type="button" className="btn btn-primary m-2 w-100">Add to watchlist</button>
+                            <button type="button" className={`btn ${isInWatchlist ? "btn-danger" : "btn-primary"} m-2 w-100`} onClick={handleToggleWatchlist}>
+                                {isInWatchlist ? "Remove from Watchlist" : "Add to Watchlist"}
+                            </button>
                         )}
                         {isLoggedIn && user.isAdmin && (
                             <button type="button" className="btn btn-danger m-2 w-100" onClick={handleDeleteMovie}>Delete movie</button>
