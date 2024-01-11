@@ -31,13 +31,19 @@ const MovieDetailsPage = () => {
         <div style={pageStyles} className="pt-4 pb-4">
             {movieDetails &&
             <div className="card text-bg-dark rounded-lg border-dark" style={cardStyle}>
-                <div className="row no-gutters d-flex flex-column h-100">
-                    <div className="col-md-2">
+                <div className="row no-gutters">
+                    <div className="col-md-2 d-flex flex-column" >
                         <img src={movieDetails.image}
-                             className="card-img m-3"
+                             className="card-img m-2"
                              alt=""
                              style={imageStyle}
                         />
+                        {isLoggedIn && (
+                            <button type="button" className="btn btn-primary m-2 w-100">Add to watchlist</button>
+                        )}
+                        {isLoggedIn && user.isAdmin && (
+                            <button type="button" className="btn btn-danger m-2 w-100" onClick={handleDeleteMovie}>Delete movie</button>
+                        )}
                     </div>
                     <div className="col-md-10">
                         <div className="card-body">
@@ -45,14 +51,6 @@ const MovieDetailsPage = () => {
                             <h6 className="card-subtitle">Publication year: {getYear()}</h6>
                             <p className="card-text mt-4">{movieDetails.content}</p>
                         </div>
-                    </div>
-                    <div className="card-footer d-flex align-items-end flex-row">
-                        {isLoggedIn && (
-                            <button type="button" className="btn btn-primary m-2">Add to watchlist</button>
-                        )}
-                        {isLoggedIn && user.isAdmin && (
-                            <button type="button" className="btn btn-danger m-2" onClick={handleDeleteMovie}>Delete movie</button>
-                        )}
                     </div>
                 </div>
             </div>
@@ -62,22 +60,21 @@ const MovieDetailsPage = () => {
 }
 
 const cardStyle = {
-    height: "20rem",
+    height: "auto",
     maxWidth: "100%",
     border: "1px black",
     textDecoration: "none"
 }
 
 const imageStyle = {
-    flex: "1",
     objectFit: "fill",
     maxHeight: "20rem",
     width: "100%",
 };
 
 const pageStyles= {
-    paddingLeft: "20rem",
-    paddingRight: "20rem",
+    paddingLeft: "20%",
+    paddingRight: "20%",
     backgroundColor: "#1b263b",
     color: "white",
     paddingTop: "2rem"

@@ -19,8 +19,13 @@ const MovieRanking = () => {
             case "title-desc":
                 setMovies((prevMovies) => [...prevMovies].sort((a, b) => b.title.localeCompare(a.title)));
                 break;
+            case "year-asc":
+                setMovies((prevMovies) => [...prevMovies].sort((a, b) => a.productionYear - b.productionYear));
+                break;
+            case "year-desc":
+                setMovies((prevMovies) => [...prevMovies].sort((a, b) => b.productionYear - a.productionYear));
+                break;
             case "default":
-                setMovies((prevMovies) => [...prevMovies].sort((a,b) => a.id.localeCompare(b.id)));
                 break;
             default:
                 break;
@@ -37,9 +42,10 @@ const MovieRanking = () => {
                 <div style={{marginTop: "1rem", paddingLeft: "4rem"}}>
                     <SortInput
                         options={[
-                            //{ value: "default", label: "Default" },
                             { value: "title-asc", label: "Title Ascending" },
                             { value: "title-desc", label: "Title Descending" },
+                            { value: "year-asc", label: "Year Ascending" },
+                            { value: "year-desc", label: "Year Descending" }
                         ]}
                         onSortChange={handleSortChange}
                     />
