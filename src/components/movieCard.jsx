@@ -37,10 +37,6 @@ const MovieCard = (params) => {
         width: "100%"
     };
 
-    const textContainerStyle = {
-        padding: "0.5rem",
-    };
-
     return (
         <Link to={{
             pathname: `/details/${encodeURIComponent(getId())}`,

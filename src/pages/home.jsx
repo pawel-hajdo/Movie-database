@@ -3,12 +3,6 @@ import FromWatchlist from "../components/FromWatchlist";
 import Carousel from "../components/carousel";
 import {getMovies} from "../API/movieManager";
 import RecommendedMovies from "../components/recommendedMovies";
-
-const homeStyle = {
-    paddingLeft: "20rem",
-    paddingRight: "20rem",
-    backgroundColor: "#1b263b"
-}
 const Home = () => {
 
     const [movies, setMovies] = useState([]);
@@ -24,6 +18,12 @@ const Home = () => {
             <FromWatchlist/>
         </div>
     )
+}
+
+const homeStyle = {
+    paddingLeft: "20%",
+    paddingRight: "20%",
+    backgroundColor: "#1b263b"
 }
 
 export default Home;

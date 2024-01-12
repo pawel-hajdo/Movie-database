@@ -13,6 +13,8 @@ import MovieRanking from "./pages/movieRanking";
 import MovieDetailsPage from "./pages/movieDetailsPage";
 import AddForm from "./pages/addForm";
 import { isExpired } from "react-jwt";
+import Watchlist from "./pages/watchlist";
+import NotFound from "./pages/notFound";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -26,6 +28,13 @@ root.render(
                 <Route path = "all" element={<MovieRanking/>}/>
                 <Route path = "details/:id" element={<MovieDetailsPage/>}/>
                 <Route path = "add" element={isExpired(localStorage.getItem('token')) ? <Navigate replace to ="/"/> : <AddForm/>}/>
+                <Route path = "watchlist" element={isExpired(localStorage.getItem('token')) ? <Navigate replace to ="/"/> : <Watchlist/>}/>
+                <Route
+                  path="*"
+                  element={
+                      <NotFound/>
+                  }
+                />
               </Route>
           </Routes>
 

@@ -14,21 +14,20 @@ export const getMovieDetails = (movieId) => {
         .catch(error => console.log(error));
 }
 
-export const postMovie = (title, image, content) => {
+export const postMovie = (title, image, content, year) => {
     axios.post(`${baseURL}/movies`,{
         title: title,
         image: image,
-        content: content
+        content: content,
+        productionYear: year
     }).then(response => {console.log(response)})
         .catch(error => console.log(error))
 }
 
-export const deleteMovie = (movieId) => {
+export const deleteMovie = (movieId, token) => {
     axios.delete(`${baseURL}/movie/${movieId}`,{
         headers: {
-            'Accept': 'application/json',
-            'Content-Type': ' application/json',
-            'x-auth-token': localStorage.getItem('token')
+            Authorization: `Bearer ${token}`
     }})
         .then(response => {console.log(response)})
         .catch(error => console.log(error))
