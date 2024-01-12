@@ -20,7 +20,6 @@ const MovieRanking = () => {
         const inputValue = e.target.value;
         setSearchInput(inputValue);
 
-        // Filtruj filmy na podstawie wpisanej nazwy
         const filtered = movies.filter((movie) =>
             movie?.title?.toLowerCase().includes(inputValue.toLowerCase())
         );
