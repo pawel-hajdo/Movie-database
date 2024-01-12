@@ -5,15 +5,17 @@ const AddForm = () => {
 
     const [movieTitle, setMovieTitle] = useState("");
     const [movieCover, setMovieCover] = useState("");
+    const [movieYear, setYear] = useState("");
     const [movieDescription, setMovieDescription] = useState("");
 
     const handleSubmit = (e) => {
-        postMovie(movieTitle, movieCover, movieDescription);
+        postMovie(movieTitle, movieCover, movieDescription, movieYear);
     }
 
     const resetForm = () => {
         setMovieTitle("");
         setMovieCover("");
+        setYear("");
         setMovieDescription("");
     };
 
@@ -48,6 +50,17 @@ const AddForm = () => {
                     />
                 </div>
                 <div className="form-group mt-2">
+                    <label htmlFor="inputMovieYear">Year</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="inputMovieTitle"
+                        placeholder="Enter publication year"
+                        value={movieYear}
+                        onChange={(e) => setYear(e.target.value)}
+                    />
+                </div>
+                <div className="form-group mt-2">
                     <label htmlFor="inputDescription">Description</label>
                     <textarea
                         className="form-control"
@@ -72,8 +85,8 @@ const AddForm = () => {
 };
 
 const pageStyles = {
-    paddingLeft: "45rem",
-    paddingRight: "45rem",
+    paddingLeft: "35%",
+    paddingRight: "35%",
     backgroundColor: "#1b263b",
     color: "white"
 }

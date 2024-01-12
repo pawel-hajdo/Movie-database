@@ -23,9 +23,17 @@ const MovieCardLong = (params) => {
     }
 
     const getDescription = () => {
-        return params.description === undefined ? "" : params.description;
+        const description = params.description === undefined ? "No description" : params.description;
+        const words = description.split(' ');
+        const limitedDescription = words.slice(0, 40).join(' ');
+
+        return words.length > 40 ? `${limitedDescription}...` : limitedDescription;
     };
 
+
+    const getYear = () => {
+        return params.year === undefined ? "no info" : params.year;
+    }
     const getId = () => {
         return params.id;
     }
@@ -33,7 +41,7 @@ const MovieCardLong = (params) => {
     const cardStyle = {
         scale: isHovered ? "1.03" : "1.00",
         height: "10rem",
-        maxWidth: "50rem",
+        maxWidth: "100%",
         textDecoration: "none",
         boxShadow: "8px 4px 4px rgba(0, 0, 0, 0.3)"
     }
@@ -59,9 +67,10 @@ const MovieCardLong = (params) => {
                 <div className="col-md-2">
                     <img src={getImage()} className="card-img" alt="" style={imageStyle}/>
                 </div>
-                <div className="col-md-8">
+                <div className="col-md-10">
                     <div className="card-body">
                         <h5 className="card-title">{getTitle()}</h5>
+                        <h6 className="card-subtitle">{getYear()}</h6>
                         <p className="card-text">{getDescription()}</p>
                     </div>
                 </div>
