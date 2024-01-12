@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {useNavigate, useParams} from 'react-router-dom';
+import {Link, useNavigate, useParams} from 'react-router-dom';
 import {deleteMovie, getMovieDetails} from "../API/movieManager";
 import {decodeToken, isExpired} from "react-jwt";
 const MovieDetailsPage = () => {
@@ -51,7 +51,7 @@ const MovieDetailsPage = () => {
 
     return (
         <div style={pageStyles} className="pt-4 pb-4">
-            {movieDetails &&
+            {movieDetails ? (
             <div className="card text-bg-dark rounded-lg border-dark" style={cardStyle}>
                 <div className="row no-gutters">
                     <div className="col-md-2 d-flex flex-column" >
@@ -78,7 +78,14 @@ const MovieDetailsPage = () => {
                     </div>
                 </div>
             </div>
-            }
+            ) : (
+                <div className="jumbotron d-flex flex-column align-items-center">
+                    <h1 className="display-4">404 - Not found!</h1>
+                    <p className="lead">Page you are looking for does not exist.</p>
+                    <p>Go back to Home</p>
+                    <Link className="btn btn-primary btn-lg" to="/" role="button">Home</Link>
+                </div>
+            )}
         </div>
     )
 }
