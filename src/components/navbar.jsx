@@ -22,8 +22,8 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
     };
 
     return (
-        <nav className="navbar navbar-dark bg-dark" style={{fontSize: "1.5rem"}}>
-            <div className="container-fluid d-flex justify-content-center">
+        <nav className="navbar navbar-dark bg-dark" style={{fontSize: "1.5rem", paddingLeft: "20%", paddingRight: "20%"}}>
+            <div className="container-fluid d-flex justify-content-sm-between">
                 <div className="nav nav-pills" id="pills-tab" role="tablist">
                     <Link to="/" className="nav-item nav-link " id="pills-home-tab" data-toggle="pill" role="tab"
                           aria-controls="pills-home" aria-selected="true">Home</Link>
@@ -36,14 +36,6 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
                         </ul>
                     </div>
 
-                </div>
-                <div className="flex-row d-flex">
-                    <form className="form-inline">
-                        <input className="form-control mr-sm-2 mt-1" type="search" placeholder="Search" aria-label="Search" style = {{width:"35rem"}}/>
-                    </form>
-                    <div className="input-group-append ms-2">
-                        <button className="btn btn-primary" type="submit"> <FaSearch /></button>
-                    </div>
                 </div>
                 <div className="nav nav-pills" id="pills-tab" role="tablist">
 
@@ -70,7 +62,6 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
                     )}
                 </div>
             </div>
-
         </nav>
     )
 }
