@@ -6,9 +6,8 @@ import "./navbarStyles.css"
 import { isExpired, decodeToken  } from "react-jwt";
 import {logoutUser} from "../API/userManager";
 
-const Navbar = () => {
+const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
 
-    const [isLoggedIn, setIsLoggedIn] = useState(!isExpired(localStorage.getItem('token')));
     const [user, setUser] = useState(decodeToken(localStorage.getItem('token')));
 
     useEffect(() => {
@@ -19,6 +18,7 @@ const Navbar = () => {
         logoutUser(user.userId);
         localStorage.removeItem('token');
         setIsLoggedIn(false);
+        window.location.reload();
     };
 
     return (

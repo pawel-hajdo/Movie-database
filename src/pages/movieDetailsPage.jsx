@@ -9,7 +9,7 @@ const MovieDetailsPage = () => {
     const token = localStorage.getItem('token');
     const isLoggedIn = !isExpired(token);
     const user = decodeToken(token);
-    const userId = user.userId;
+    const userId = user?.userId;
     const navigate = useNavigate()
     const [isInWatchlist, setIsInWatchlist] = useState(false);
 
