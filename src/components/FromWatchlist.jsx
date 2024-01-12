@@ -28,7 +28,7 @@ const FromWatchlist = ({ isLoggedIn }) => {
             <h1 style={{color: "#e0e1dd"}}>From your watchlist</h1>
             {userId ? (
                 <Slider {...settings}>
-                    {moviesFromWatchlist.map((movie)=><MovieCard title = {movie.title} image = {movie.image} description = {movie.desc} />)}
+                    {moviesFromWatchlist.map((movie)=><MovieCard title = {movie.title} image = {movie.image} description = {movie.desc}  id = {movie.id}/>)}
                 </Slider>
             ): (
                 <div className="d-flex flex-column align-items-center">

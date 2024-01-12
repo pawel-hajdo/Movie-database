@@ -39,7 +39,7 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
                 </div>
                 <div className="flex-row d-flex">
                     <form className="form-inline">
-                        <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style = {{width:"35rem"}}/>
+                        <input className="form-control mr-sm-2 mt-1" type="search" placeholder="Search" aria-label="Search" style = {{width:"35rem"}}/>
                     </form>
                     <div className="input-group-append ms-2">
                         <button className="btn btn-primary" type="submit"> <FaSearch /></button>
