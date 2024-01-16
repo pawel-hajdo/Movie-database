@@ -4,21 +4,21 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {Link} from "react-router-dom";
-import {decodeToken} from "react-jwt";
+import {decodeToken, isExpired} from "react-jwt";
 
-const FromWatchlist = ({ isLoggedIn }) => {
+const FromWatchlist = () => {
 
     const [moviesFromWatchlist, setMoviesFromWatchlist] = useState([]);
-    const token = localStorage.getItem('token');
-    const user = decodeToken(token);
-    const userId = user?.userId;
+    const [isLoggedIn, setIsLoggedIn] = useState(!isExpired(localStorage.getItem('token')));
 
     useEffect(() => {
         getMoviesFromWatchlist();
     }, [isLoggedIn]);
 
-
     const getMoviesFromWatchlist = () => {
+        const token = localStorage.getItem('token');
+        const user = decodeToken(token);
+        const userId = user?.userId;
         const moviesInWatchlist = JSON.parse(localStorage.getItem(userId + ' watchlist')) || [];
         setMoviesFromWatchlist(moviesInWatchlist);
     }
@@ -26,7 +26,7 @@ const FromWatchlist = ({ isLoggedIn }) => {
     return (
         <div style={styles}>
             <h1 style={{color: "#e0e1dd"}}>From your watchlist</h1>
-            {userId ? (
+            {isLoggedIn ? (
                 <Slider {...settings}>
                     {moviesFromWatchlist.map((movie)=><MovieCard title = {movie.title} image = {movie.image} description = {movie.desc}  id = {movie.id}/>)}
                 </Slider>
