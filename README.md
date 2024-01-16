@@ -5,9 +5,10 @@ You can check how it looks like in [preview](https://github.com/pawel-hajdo/Movi
 ## Features
 - User registration and login with JWT authentication
 - Fetching information about movies
-- Adding new movies
-- Watchlist /*TODO*/
-
+- Adding/removing movies
+- Watchlist
+- Movie search by name
+  
 ## Technologies
 - React.js
 - HTML
